@@ -25,8 +25,6 @@ karma.controller('IndexController', function($scope, supersonic, Karma) {
   
   $scope.Karma.nextPage();
   
-  
-  
 
 });
 
