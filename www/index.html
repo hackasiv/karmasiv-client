@@ -40,13 +40,13 @@
         <!--infinite-scroll="Karma.nextPage()" infinite-scroll-disabled="Karma.busy" infinite-scroll-distance="10"--> 
     
     <div class="list" id="books-list">
-      <a class="item item-thumbnail-left" href="#" ng-repeat="item in Karma.items">
+      <div class="item item-thumbnail-left" href="#" ng-repeat="item in Karma.items">
           <img src="/img/book-empty.png">
           <h2 ng-bind-html="item.title | sanitize"></h2>
           <div class="text collapsed" ng-bind-html="item.content | sanitize">
             
           </div>
-      </a> 
+      </div> 
         <div class="preloader-msg" ng-show='Karma.busy'>Загрузка...</div>
     </div>      
 
