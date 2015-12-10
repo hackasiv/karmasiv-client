@@ -42,7 +42,7 @@ karma.factory('Karma', function($http) {
       this.after = this.items[this.items.length - 1].id;
       this.busy = false;
     }.bind(this), function(e){
-        alert(e.message)
+        alert(e)
     });
   };
 

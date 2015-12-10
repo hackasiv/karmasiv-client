@@ -15,32 +15,48 @@
   <script src="/components/angular/angular.js"></script>
   <script src="/components/supersonic/supersonic.js"></script>
   <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <script src="/components/jquery/dist/jquery.js"></script>
   <script src="/components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
-
   <script src="/scripts/application.js"></script>
 </head>
 <body ng-app="SteroidsApplication">
 
-<div class="padding" ng-controller="IndexController">
+<div class="" ng-controller="IndexController">
+<div class="" ng-controller="IndexController">
 
   <super-navbar>
     <super-navbar-title ng-bind="navbarTitle">
     </super-navbar-title>
   </super-navbar>
-    <div class="bar bar-header item-input-inset">
+
+    <div class="bar bar-tall bar-header item-input-inset">
         <label class="item-input-wrapper">
           <i class="icon super-ios-search placeholder-icon"></i>
           <input type="search" placeholder="Найти книгу или издание" ng-model="Karma.search_term">
         </label>
     </div>
 
-    <div infinite-scroll="Karma.nextPage()" infinite-scroll-disabled="Karma.busy" infinite-scroll-distance="1" class="list">
+    <div infinite-scroll="Karma.nextPage()" infinite-scroll-disabled="Karma.busy" infinite-scroll-distance="1" class="list" id="books-list">
       <a class="item item-thumbnail-left" href="#" ng-repeat="item in Karma.items">
           <div class="book-title">Title: {{ item.title }}</div>
+          <div class="text collapsed">
+            {{ item.text }}
+          </div>
       </a> 
         <div ng-show='Karma.busy'>Loading data...</div>
     </div>      
+
 </div>
+
+<script>
+
+  jQuery(document).ready(function($) {
+    $('#books-list .item .text').click(function(event) {
+      $(this).toggleClass('collapsed');
+    });
+  });
+
+</script>
 
 </body>
 </html>
