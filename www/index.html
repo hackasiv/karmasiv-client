@@ -15,14 +15,13 @@
   <script src="/components/angular/angular.js"></script>
   <script src="/components/supersonic/supersonic.js"></script>
   <script src="/components/webcomponentsjs/webcomponents.js"></script>
-  <script src="/components/jquery-1.11.3.min.js"></script>
-  <script src="/components/app.js"></script>
+  <script src="/components/jquery/dist/jquery.js"></script>
 
   <script src="/scripts/application.js"></script>
 </head>
 <body ng-app="SteroidsApplication">
 
-<div class="padding" ng-controller="IndexController">
+<div class="" ng-controller="IndexController">
 <div class="" ng-controller="IndexController">
 
   <super-navbar>
@@ -55,6 +54,16 @@
       </a>
   </div>
 </div>
+
+<script>
+
+  jQuery(document).ready(function($) {
+    $('#books-list .item .text').click(function(event) {
+      $(this).toggleClass('collapsed');
+    });
+  });
+
+</script>
 
 </body>
 </html>
