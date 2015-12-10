@@ -6,9 +6,14 @@ var karma = angular.module('SteroidsApplication', [
 karma.config(function($httpProvider) {
     //Enable cross domain calls
     $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+//    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
 
+karma.filter("sanitize", ['$sce', function($sce) {
+  return function(htmlCode){
+    return $sce.trustAsHtml(htmlCode);
+  }
+}]);
 
 karma.controller('IndexController', function($scope, supersonic, Karma) {
   
@@ -18,6 +23,11 @@ karma.controller('IndexController', function($scope, supersonic, Karma) {
   
   $scope.Karma = new Karma();
   
+  $scope.Karma.nextPage();
+  
+  
+  
+
 });
 
 // Reddit constructor function to encapsulate HTTP and pagination logic
@@ -29,28 +39,33 @@ karma.factory('Karma', function($http) {
     this.after = '';
     this.page = 1;
     this.items_per_page = 20;
-    this.search_term = 'Пушкин';
+    this.search_term = '';
+  };
+  
+  
+
+  Karma.prototype.search = function() {
+      this.items = [];
+      this.nextPage();  
+      return false;
   };
 
   Karma.prototype.nextPage = function() {
     if (this.busy) return;
     this.busy = true;
-
     var url = "http://env-0112901.j.layershift.co.uk/?q=" + this.search_term;
-    $http.defaults.useXDomain = true;
-//    alert($http.get(url))
     
     $http.get(url).then(function(data) {
-      console.log(data);
+      console.log(data.data.length);
       var items = data.data;
       
       for (var i = 0; i < items.length; i++) {
-        this.items.push(items[i].data);
+        this.items.push(items[i]);
       }
 //      this.after = this.items[this.items.length - 1].id;
       this.busy = false;
     }.bind(this), function(e){
-        console.log(e)
+        console.log(e);
     });
   };
 
