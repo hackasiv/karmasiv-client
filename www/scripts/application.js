@@ -7,7 +7,7 @@ karma.controller('IndexController', function($scope, supersonic, Karma) {
   
   $scope.search_term = '';
 
-  $scope.navbarTitle = "Welcome to Supersonic!";
+  $scope.navbarTitle = "Библиотека online";
   
   $scope.Karma = new Karma();
   
