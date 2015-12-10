@@ -3,6 +3,12 @@ var karma = angular.module('SteroidsApplication', [
   'infinite-scroll'
 ]);
 
+karma.config(function($httpProvider) {
+    //Enable cross domain calls
+    $httpProvider.defaults.useXDomain = true;
+});
+
+
 karma.controller('IndexController', function($scope, supersonic, Karma) {
   
   $scope.search_term = '';
