@@ -27,36 +27,29 @@
     <super-navbar-title ng-bind="navbarTitle">
     </super-navbar-title>
   </super-navbar>
-
-  <p>Awesome! This file is located at <strong>www/index.html</strong> &mdash; open it, change some text, save the file, and press enter in the Terminal window running <strong>$ steroids connect</strong>. The changes are updated to all connected devices. Cool, ain't it?</p>
-
-  <h3>Using the Scanner App</h3>
-
-  <p>On iOS, to restart your current app or scan another app, <strong>tap and hold on the screen with three fingers.</strong>. This opens the Scanner context menu.</p>
-
-  <p>On Android, press the native back button to return to the scan screen.</p>
-
-  <h3>Working with AngularJS</h3>
-
-  <p>Angular works great with Supersonic native components. Changing the input field below will automatically update the navigation bar title.</p>
-
-  <div class="card padding">
-    <h4>Navigation Bar Title (Look Up!)</h4>
-    <label class="item item-input">
-      <input type="text" ng-model="navbarTitle">
+  <div class="bar bar-header item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon super-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Найти книгу или издание">
     </label>
   </div>
 
-  <p>You can find the AngularJS controller used at:</p>
-
-  <p><strong><small>www/scripts/application.js</small></strong></p>
-
-  <h2>Get in touch with us!</h2>
-
-  <p>Learn more about building apps with Supersonic at <a onclick="supersonic.app.openURL('http://docs.appgyver.com')" href="">http://docs.appgyver.com</a>.</p>
-
-  <p>Feel free to contact us at <a onclick="supersonic.app.openURL('mailto:contact@appgyver.com')" href="">contact@appgyver.com</a>, we would love to get your feedback!</p>
-
+  <div class="list">
+      <a class="item item-thumbnail-left" href="#">
+        <img src="/img/book-empty.png">
+        <h2>Карамзин/ Е. А. Соловьев. Пушкин/ А. М. Скабичевский. Гоголь/А. Н. Анненская. Аксаковы/</h2>
+        <p>Шифр издания : 8Р13(092)/К 211 </p>
+        <p>Автор(ы) : Соловьев Е. А. </p>
+        <p>Выходные данные : Челябинск: Урал, 1994</p>
+        <p>Колич.характеристики :479 с </p>
+        <p>Серия: ЖЗЛ: Биогр. б-ка Ф. Павленкова; Т.2 </p>
+        <p>Примечания : Авт. указ. в содерж. </p>
+        <p>ISBN, Цена 5-88294-032-X: </p>
+        <p>УДК : 8Р13(092)</p>
+        <p>Предметные рубрики: Русская литература XIX в. </p>
+        <p>Экземпляры : всего : аб(2), кх(1)</p>
+      </a>
+  </div>
 </div>
 
 </body>
