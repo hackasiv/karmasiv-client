@@ -34,7 +34,7 @@ karma.factory('Karma', function($http) {
 //    alert($http.get(url))
     
     $http.get(url).then(function(data) {
-        alert(data);
+      console.log(data);
       var items = data;
       for (var i = 0; i < items.length; i++) {
         this.items.push(items[i].data);
@@ -42,7 +42,7 @@ karma.factory('Karma', function($http) {
       this.after = this.items[this.items.length - 1].id;
       this.busy = false;
     }.bind(this), function(e){
-        alert(e)
+        console.log(e)
     });
   };
 
