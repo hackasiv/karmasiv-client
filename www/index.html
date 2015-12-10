@@ -27,29 +27,19 @@
     <super-navbar-title ng-bind="navbarTitle">
     </super-navbar-title>
   </super-navbar>
-  <div class="bar bar-header item-input-inset">
-    <label class="item-input-wrapper">
-      <i class="icon super-ios-search placeholder-icon"></i>
-      <input type="search" placeholder="Найти книгу или издание">
-    </label>
-  </div>
+    <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon super-ios-search placeholder-icon"></i>
+          <input type="search" placeholder="Найти книгу или издание" ng-model="Karma.search_term">
+        </label>
+    </div>
 
-  <div class="list">
-      <a class="item item-thumbnail-left" href="#">
-        <img src="/img/book-empty.png">
-        <h2>Карамзин/ Е. А. Соловьев. Пушкин/ А. М. Скабичевский. Гоголь/А. Н. Анненская. Аксаковы/</h2>
-        <p>Шифр издания : 8Р13(092)/К 211 </p>
-        <p>Автор(ы) : Соловьев Е. А. </p>
-        <p>Выходные данные : Челябинск: Урал, 1994</p>
-        <p>Колич.характеристики :479 с </p>
-        <p>Серия: ЖЗЛ: Биогр. б-ка Ф. Павленкова; Т.2 </p>
-        <p>Примечания : Авт. указ. в содерж. </p>
-        <p>ISBN, Цена 5-88294-032-X: </p>
-        <p>УДК : 8Р13(092)</p>
-        <p>Предметные рубрики: Русская литература XIX в. </p>
-        <p>Экземпляры : всего : аб(2), кх(1)</p>
-      </a>
-  </div>
+    <div infinite-scroll="Karma.nextPage()" infinite-scroll-disabled="Karma.busy" infinite-scroll-distance="1" class="list">
+      <a class="item item-thumbnail-left" href="#" ng-repeat="item in Karma.items">
+          <div class="book-title">Title: {{ item.title }}</div>
+      </a> 
+        <div ng-show='Karma.busy'>Loading data...</div>
+    </div>      
 </div>
 
 </body>
